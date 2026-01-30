@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="syles/style.css">
+    <link rel="stylesheet" href="syles/initial-animation.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
+    <meta name="author" content="Emanuele C.">
+    <title>Lettura ad alta quota</title>
+
+    <script defer>
+        window.addEventListener("load", () => {
+            const intro = document.getElementById("initial-animation");
+            if (sessionStorage.getItem("introPlayed")) {
+                intro.remove();
+                return;
+            }
+            sessionStorage.setItem("introPlayed", "true");
+            intro.addEventListener("animationend", () => {
+                intro.remove();
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="initial-animation">
+        <img src="images/logo.png" alt="intro">
+    </div>
+
+    <div class="wrapper">
+        <main>
+            <img src="images/locandina.svg" alt="locandina" id="locandina">
+        </main>
+        <footer>
+            <p>&copy; 2026. Tutti i diritti riservati</p>
+        </footer>
+    </div>
+</body>
+</html>
